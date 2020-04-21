@@ -34,3 +34,51 @@ H:\projetos raiva\tibia\MULTIBOOT\tenso\tenso\obj\Debug\tenso.csproj.GenerateRes
 H:\projetos raiva\tibia\MULTIBOOT\tenso\tenso\obj\Debug\tenso.csproj.CopyComplete
 H:\projetos raiva\tibia\MULTIBOOT\tenso\tenso\obj\Debug\tenso.exe
 H:\projetos raiva\tibia\MULTIBOOT\tenso\tenso\obj\Debug\tenso.pdb
+C:\Nova pasta\tenso3\tenso\tenso\bin\Debug\tenso.exe.config
+C:\Nova pasta\tenso3\tenso\tenso\bin\Debug\tenso.exe
+C:\Nova pasta\tenso3\tenso\tenso\bin\Debug\tenso.pdb
+C:\Nova pasta\tenso3\tenso\tenso\bin\Debug\WindowsInput.dll
+C:\Nova pasta\tenso3\tenso\tenso\bin\Debug\WindowsInput.xml
+C:\Nova pasta\tenso3\tenso\tenso\obj\Debug\tenso.csprojAssemblyReference.cache
+C:\Nova pasta\tenso3\tenso\tenso\obj\Debug\tenso.Form1.resources
+C:\Nova pasta\tenso3\tenso\tenso\obj\Debug\tenso.Properties.Resources.resources
+C:\Nova pasta\tenso3\tenso\tenso\obj\Debug\tenso.csproj.GenerateResource.cache
+C:\Nova pasta\tenso3\tenso\tenso\obj\Debug\tenso.csproj.CopyComplete
+C:\Nova pasta\tenso3\tenso\tenso\obj\Debug\tenso.exe
+C:\Nova pasta\tenso3\tenso\tenso\obj\Debug\tenso.pdb
+C:\Nova pasta\tenso 4\tenso\tenso\obj\Debug\tenso.csprojAssemblyReference.cache
+C:\Nova pasta\tenso 4\tenso\tenso\obj\Debug\tenso.Form1.resources
+C:\Nova pasta\tenso 4\tenso\tenso\obj\Debug\tenso.Properties.Resources.resources
+C:\Nova pasta\tenso 4\tenso\tenso\obj\Debug\tenso.csproj.GenerateResource.cache
+C:\Nova pasta\tenso 4\tenso\tenso\obj\Debug\tenso.exe
+C:\Nova pasta\tenso 4\tenso\tenso\obj\Debug\tenso.pdb
+C:\Nova pasta\tenso 4\tenso\tenso\bin\Debug\tenso.exe.config
+C:\Nova pasta\tenso 4\tenso\tenso\bin\Debug\tenso.exe
+C:\Nova pasta\tenso 4\tenso\tenso\bin\Debug\tenso.pdb
+C:\Nova pasta\tenso 4\tenso\tenso\bin\Debug\WindowsInput.dll
+C:\Nova pasta\tenso 4\tenso\tenso\bin\Debug\WindowsInput.xml
+C:\Nova pasta\tenso 4\tenso\tenso\obj\Debug\tenso.csproj.CopyComplete
+H:\projetos raiva\tibia\MULTIBOOT\tenso 5\tenso\tenso\obj\Debug\tenso.csprojAssemblyReference.cache
+H:\projetos raiva\tibia\MULTIBOOT\tenso 5\tenso\tenso\obj\Debug\tenso.Form1.resources
+H:\projetos raiva\tibia\MULTIBOOT\tenso 5\tenso\tenso\obj\Debug\tenso.Properties.Resources.resources
+H:\projetos raiva\tibia\MULTIBOOT\tenso 5\tenso\tenso\obj\Debug\tenso.csproj.GenerateResource.cache
+H:\projetos raiva\tibia\MULTIBOOT\tenso 5\tenso\tenso\obj\Debug\tenso.exe
+H:\projetos raiva\tibia\MULTIBOOT\tenso 5\tenso\tenso\obj\Debug\tenso.pdb
+H:\projetos raiva\tibia\MULTIBOOT\tenso 5\tenso\tenso\bin\Debug\tenso.exe.config
+H:\projetos raiva\tibia\MULTIBOOT\tenso 5\tenso\tenso\bin\Debug\tenso.exe
+H:\projetos raiva\tibia\MULTIBOOT\tenso 5\tenso\tenso\bin\Debug\tenso.pdb
+H:\projetos raiva\tibia\MULTIBOOT\tenso 5\tenso\tenso\bin\Debug\WindowsInput.dll
+H:\projetos raiva\tibia\MULTIBOOT\tenso 5\tenso\tenso\bin\Debug\WindowsInput.xml
+H:\projetos raiva\tibia\MULTIBOOT\tenso 5\tenso\tenso\obj\Debug\tenso.csproj.CopyComplete
+C:\Nova pasta\tenso 6\tenso 5\tenso\tenso\bin\Debug\tenso.exe.config
+C:\Nova pasta\tenso 6\tenso 5\tenso\tenso\bin\Debug\tenso.exe
+C:\Nova pasta\tenso 6\tenso 5\tenso\tenso\bin\Debug\tenso.pdb
+C:\Nova pasta\tenso 6\tenso 5\tenso\tenso\bin\Debug\WindowsInput.dll
+C:\Nova pasta\tenso 6\tenso 5\tenso\tenso\bin\Debug\WindowsInput.xml
+C:\Nova pasta\tenso 6\tenso 5\tenso\tenso\obj\Debug\tenso.csprojAssemblyReference.cache
+C:\Nova pasta\tenso 6\tenso 5\tenso\tenso\obj\Debug\tenso.Form1.resources
+C:\Nova pasta\tenso 6\tenso 5\tenso\tenso\obj\Debug\tenso.Properties.Resources.resources
+C:\Nova pasta\tenso 6\tenso 5\tenso\tenso\obj\Debug\tenso.csproj.GenerateResource.cache
+C:\Nova pasta\tenso 6\tenso 5\tenso\tenso\obj\Debug\tenso.csproj.CopyComplete
+C:\Nova pasta\tenso 6\tenso 5\tenso\tenso\obj\Debug\tenso.exe
+C:\Nova pasta\tenso 6\tenso 5\tenso\tenso\obj\Debug\tenso.pdb

@@ -269,7 +269,7 @@
             // 
             // timerMapaVespas0
             // 
-            this.timerMapaVespas0.Interval = 550;
+            this.timerMapaVespas0.Interval = 1000;
             this.timerMapaVespas0.Tick += new System.EventHandler(this.timerMapaVespas0_Tick);
             // 
             // button4

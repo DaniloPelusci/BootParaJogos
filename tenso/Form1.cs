@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -8,6 +9,7 @@ namespace tenso
 {
     public partial class Form1 : Form
     {
+        List<Teclas> list = new List<Teclas>();
         int subir = 15;
         int ContFlour = 0;
         int comida = 200;
@@ -302,7 +304,8 @@ namespace tenso
 
         private void button4_Click(object sender, EventArgs e)
         {
-            timerColor.Enabled = true;
+
+            // timerColor.Enabled = true;
             label8.Text = "" + aa;
 
 
@@ -409,74 +412,20 @@ namespace tenso
             Color Target2 = GetPixel(PontoChave2);
             if (ataque <= 0)
             {
+                try
+                {
+                    if (list[0].Quantidade > 0)
+                    {
 
-                if (aa.Quantidade > 0)
+                        list[0].Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, list[0]);
 
-                {
-
-                    aa.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, aa);
-
+                    }
+                    else
+                    {
+                        list.RemoveAt(0);
+                    }
                 }
-                else if (s1.Quantidade > 0)
-                {
-                    s1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s1);
-                }
-                else if (d1.Quantidade > 0)
-                {
-                    d1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d1);
-                }
-                else if (s2.Quantidade > 0)
-                {
-                    s2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s2);
-                }
-                else if (d2.Quantidade > 0)
-                {
-                    d2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d2);
-                }
-                else if (s3.Quantidade > 0)
-                {
-                    s3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s3);
-                }
-                else if (d3.Quantidade > 0)
-                {
-                    d3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d3);
-                }
-                else if (s4.Quantidade > 0)
-                {
-                    s4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s4);
-                }
-                else if (a1.Quantidade > 0)
-                {
-                    a1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a1);
-                }
-                else if (w1.Quantidade > 0)
-                {
-                    w1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w1);
-                }
-                else if (a2.Quantidade > 0)
-                {
-                    a2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a2);
-                }
-                else if (w2.Quantidade > 0)
-                {
-                    w2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w2);
-                }
-                else if (a3.Quantidade > 0)
-                {
-                    a3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a3);
-                    //if (a3 == 0)
-                    //{
-                    //    SendKeys.Send("{F6}");
-                    //    mouse_event(MOUSEEVENTF_LEFTDOWN, 312, 300, 0, 0);//make left button down
-                    //    mouse_event(MOUSEEVENTF_LEFTUP, 312, 300, 0, 0);//make left button up
-                    //    ContFlour++;
-                    //}
-
-                }
-
-
-
-                if (a3.Quantidade == 0)
+                catch
                 {
                     s1.Quantidade = 4;
                     d1.Quantidade = 3;
@@ -490,10 +439,19 @@ namespace tenso
                     a2.Quantidade = 3;
                     w2.Quantidade = 10;
                     a3.Quantidade = 2;
-
+                    list.Add(s1);
+                    list.Add(d1);
+                    list.Add(s2);
+                    list.Add(d2);
+                    list.Add(s3);
+                    list.Add(d3);
+                    list.Add(s4);
+                    list.Add(a1);
+                    list.Add(w1);
+                    list.Add(a2);
+                    list.Add(w2);
+                    list.Add(a3);
                 }
-
-
             }
             else if (ataque == 5 && !verificacaoAtaaque(Target) && verificacaoPixelSeForIguale(Target, Target2))
             {
@@ -610,286 +568,169 @@ namespace tenso
             {
                 if (ContFlour == 0)
                 {
-                    if (aa.Quantidade > 0)
+                    try
                     {
+                        if (list[0].Quantidade > 0)
+                        {
 
-                        aa.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, aa);
-                        label8.Text = "" + aa;
+                            list[0].Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, list[0]);
+
+                        }
+                        else
+                        {
+                            list.RemoveAt(0);
+                        }
                     }
-                    else if (s1.Quantidade > 0)
+                    catch
                     {
-                        s1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s1);
-                        label8.Text = "" + s1;
+                        s1.Quantidade = 10;
+                        d1.Quantidade = 16;
+                        w1.Quantidade = 19;
+                        a1.Quantidade = 16;
+                        s2.Quantidade = 7;
+                        d2.Quantidade = 3;
+                        s3.Quantidade = 11;
+                        a2.Quantidade = 1;
+                        s4.Quantidade = 24;
+                        d3.Quantidade = 5;
+                        s5.Quantidade = 3;
+                        d4.Quantidade = 4;
+                        s6.Quantidade = 11;
+                        w2.Quantidade = 2;
+                        d5.Quantidade = 30;
+                        w3.Quantidade = 7;
+                        a3.Quantidade = 13;
+                        w4.Quantidade = 4;
+                        d6.Quantidade = 6;
+                        w5.Quantidade = 6;
+                        d7.Quantidade = 6;
+                        w7.Quantidade = 17;
+                        d8.Quantidade = 5;
+                        w8.Quantidade = 8;
+                        a4.Quantidade = 15;
+                        w9.Quantidade = 5;
+                        a5.Quantidade = 15;
+                        s7.Quantidade = 13;
+                        a5.Quantidade = 17;
+                        w10.Quantidade = 8;
+                        //---------------
+                        list.Add(s1);
+                        list.Add(d1);
+                        list.Add(w1);
+                        list.Add(a1);
+                        list.Add(s2);
+                        list.Add(d2);
+                        list.Add(s3);
+                        list.Add(a2);
+                        list.Add(s4);
+                        list.Add(d3);
+                        list.Add(s5);
+                        list.Add(d4);
+                        list.Add(s6);
+                        list.Add(w2);
+                        list.Add(d5);
+                        list.Add(w3);
+                        list.Add(a3);
+                        list.Add(w4);
+                        list.Add(d6);
+                        list.Add(w5);
+                        list.Add(d7);
+                        list.Add(w7);
+                        list.Add(d8);
+                        list.Add(w8);
+                        list.Add(a4);
+                        list.Add(w9);
+                        list.Add(a5);
+                        list.Add(s7);
+                        list.Add(a5);
+                        list.Add(w10);
+
                     }
-                    else if (d1.Quantidade > 0)
-                    {
-                        d1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d1);
-                        label8.Text = "" + d1;
-                    }
-                    else if (w1.Quantidade > 0)
-                    {
-                        w1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w1);
-                        label8.Text = "" + w1;
-                    }
-                    else if (a1.Quantidade > 0)
-                    {
-                        a1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a1);
-                        label8.Text = "" + a1;
-                    }
-                    else if (s2.Quantidade > 0)
-                    {
-                        s2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s2);
-                        label8.Text = "" + s2;
-                    }
-                    else if (d2.Quantidade > 0)
-                    {
-                        d2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d2);
-                        label8.Text = "" + d2;
-                    }
-                    else if (s3.Quantidade > 0)
-                    {
-                        s3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s3);
-                        label8.Text = "" + s3;
-                    }
-                    else if (a2.Quantidade > 0)
-                    {
-                        a2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a2);
-                        label8.Text = "" + a2;
-                    }
-                    else if (s4.Quantidade > 0)
-                    {
-                        s4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s4);
-                        label8.Text = "" + s4;
-                    }
-                    else if (d3.Quantidade > 0)
-                    {
-                        d3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d3);
-                        label8.Text = "" + d3;
-                    }
-                    else if (s5.Quantidade > 0)
-                    {
-                        s5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s5);
-                        label8.Text = "" + s5;
-                    }
-                    else if (d4.Quantidade > 0)
-                    {
-                        d4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d4);
-                        label8.Text = "" + d4;
-                    }
-                    else if (s6.Quantidade > 0)
-                    {
-                        s6.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s6);
-                        label8.Text = "" + s6;
-                    }
-                    else if (w2.Quantidade > 0)
-                    {
-                        w2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w2);
-                        label8.Text = "" + w2;
-                    }
-                    else if (d5.Quantidade > 0)
-                    {
-                        d5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d5);
-                        label8.Text = "" + d5;
-                    }
-                    else if (w3.Quantidade > 0)
-                    {
-                        w3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w3);
-                        label8.Text = "" + w3;
-                    }
-                    else if (a3.Quantidade > 0)
-                    {
-                        a3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a3);
-                        label8.Text = "" + a3;
-                    }
-                    else if (w4.Quantidade > 0)
-                    {
-                        w4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w4);
-                        label8.Text = "" + w4;
-                    }
-                    else if (d6.Quantidade > 0)
-                    {
-                        d6.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d6);
-                        label8.Text = "" + d6;
-                    }
-                    else if (w5.Quantidade > 0)
-                    {
-                        w5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w5);
-                        label8.Text = "" + w5;
-                    }
-                    else if (d7.Quantidade > 0)
-                    {
-                        d7.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d7);
-                        label8.Text = "" + d7;
-                    }
-                    else if (w7.Quantidade > 0)
-                    {
-                        w7.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w7);
-                        label8.Text = "" + w7;
-                    }
-                    else if (d8.Quantidade > 0)
-                    {
-                        d8.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d8);
-                        label8.Text = "" + d8;
-                    }
-                    else if (w8.Quantidade > 0)
-                    {
-                        w8.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w8);
-                        label8.Text = "" + w8;
-                    }
-                    else if (a4.Quantidade > 0)
-                    {
-                        a4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a4);
-                        label8.Text = "" + a4;
-                    }
-                    else if (w9.Quantidade > 0)
-                    {
-                        w9.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w9);
-                        label8.Text = "" + w9;
-                    }
-                    else if (a5.Quantidade > 0)
-                    {
-                        a5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a5);
-                        label8.Text = "" + a5;
-                    }
-                    else if (s7.Quantidade > 0)
-                    {
-                        s7.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s7);
-                        label8.Text = "" + s7;
-                    }
-                    else if (a5.Quantidade > 0)
-                    {
-                        a5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a5);
-                        label8.Text = "" + a5;
-                    }
-                    else if (w10.Quantidade > 0)
-                    {
-                        w10.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w10);
-                        label8.Text = "" + w10;
-                    }
-                    else if (comercomer.Quantidade > 0)
-                    {
-                        comercomer.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, comercomer);
-                    }
+
+
+
+
+
+
+
                 }
-                if (w10.Quantidade == 0)
+                else if (ataque <= 5 && !verificacaoAtaaque(Target) && !verificacaoPixel(Target, Target2) && !auxiliar)
                 {
-                    s1.Quantidade = 10;
-                    d1.Quantidade = 16;
-                    w1.Quantidade = 19;
-                    a1.Quantidade = 16;
-                    s2.Quantidade = 7;
-                    d2.Quantidade = 3;
-                    s3.Quantidade = 11;
-                    a2.Quantidade = 1;
-                    s4.Quantidade = 24;
-                    d3.Quantidade = 5;
-                    s5.Quantidade = 3;
-                    d4.Quantidade = 4;
-                    s6.Quantidade = 11;
-                    w2.Quantidade = 2;
-                    d5.Quantidade = 30;
-                    w3.Quantidade = 7;
-                    a3.Quantidade = 13;
-                    w4.Quantidade = 4;
-                    d6.Quantidade = 6;
-                    w5.Quantidade = 6;
-                    d7.Quantidade = 6;
-                    w7.Quantidade = 17;
-                    d8.Quantidade = 5;
-                    w8.Quantidade = 8;
-                    a4.Quantidade = 15;
-                    w9.Quantidade = 5;
-                    a5.Quantidade = 15;
-                    s7.Quantidade = 13;
-                    a5.Quantidade = 17;
-                    w10.Quantidade = 8;
+                    Point pontoChave = new Point(964, 521);
+                    Console.WriteLine(GetPixel(pontoChave));
+                    Color target = GetPixel(pontoChave);
+                    pictureBox2.BackColor = target;
+
+                    label7.Text = "" + ataque + !verificacaoPixel(Target, Target2);
+
+                    mouse_event(MOUSEEVENTF_RIGHTDOWN, 312, 300, 0, 0);//make left button down
+                    mouse_event(MOUSEEVENTF_RIGHTUP, 312, 300, 0, 0);//make left button up
+
+                    label7.Text = "" + ataque + !verificacaoPixel(Target, Target2);
+                    ataque += 3;
+                    auxiliar = true;
+
+
 
 
 
                 }
-
-
-
-
-
-
-            }
-            else if (ataque <= 5 && !verificacaoAtaaque(Target) && !verificacaoPixel(Target, Target2) && !auxiliar)
-            {
-                Point pontoChave = new Point(964, 521);
-                Console.WriteLine(GetPixel(pontoChave));
-                Color target = GetPixel(pontoChave);
-                pictureBox2.BackColor = target;
-
-                label7.Text = "" + ataque + !verificacaoPixel(Target, Target2);
-
-                mouse_event(MOUSEEVENTF_RIGHTDOWN, 312, 300, 0, 0);//make left button down
-                mouse_event(MOUSEEVENTF_RIGHTUP, 312, 300, 0, 0);//make left button up
-
-                label7.Text = "" + ataque + !verificacaoPixel(Target, Target2);
-                ataque += 3;
-                auxiliar = true;
-
-
-
-
-
-            }
-            else if (!verificacaoAtaaque(Target) && !verificacaoPixelSeForIguale(Target, Target2))
-            {
-
-                if (ataque < 5)
+                else if (!verificacaoAtaaque(Target) && !verificacaoPixelSeForIguale(Target, Target2))
                 {
 
-                    SendKeys.Send(" ");
-                    ataque += 5;
-                    label7.Text = "atacando" + ataque;
-                    auxiliar = false;
+                    if (ataque < 5)
+                    {
+
+                        SendKeys.Send(" ");
+                        ataque += 5;
+                        label7.Text = "atacando" + ataque;
+                        auxiliar = false;
+                    }
+                    else if (ataque == 1 && !auxiliar)
+                    {
+                        label7.Text = "atacando" + ataque;
+                        ataque += 5;
+                        auxiliar = false;
+                    }
+                    if (!verificacaoAtaaque(Target) && verificacaoPixelSeForIguale(Target, Target2) && !auxiliar)
+                    {
+
+                        ataque += 5;
+                        auxiliar = false;
+                    }
+
+
+
                 }
-                else if (ataque == 1 && !auxiliar)
+                else
                 {
-                    label7.Text = "atacando" + ataque;
-                    ataque += 5;
-                    auxiliar = false;
-                }
-                if (!verificacaoAtaaque(Target) && verificacaoPixelSeForIguale(Target, Target2) && !auxiliar)
-                {
-
-                    ataque += 5;
-                    auxiliar = false;
+                    {
+                        label7.Text = "atacando" + ataque;
+                        ataque--;
+                    }
                 }
 
-
-
-            }
-            else
-            {
-                {
-                    label7.Text = "atacando" + ataque;
-                    ataque--;
-                }
-            }
-
-            label7.Text = "atacando" + ataque;
-            if (comida < 10)
-            {
-
-                SendKeys.Send("{F5}");
-                label7.Text = "atacando" + ataque + "{F5}";
-                if (comida % 2 == 0)
-                {
-                    SendKeys.Send("{F3}");
-                }
-                if (comida == 1)
+                label7.Text = "atacando" + ataque;
+                if (comida < 10)
                 {
 
-                    comida = 200;
+                    SendKeys.Send("{F5}");
+                    label7.Text = "atacando" + ataque + "{F5}";
+                    if (comida % 2 == 0)
+                    {
+                        SendKeys.Send("{F3}");
+                    }
+                    if (comida == 1)
+                    {
+
+                        comida = 200;
+                    }
+                    comida--;
                 }
-                comida--;
-            }
-            else
-            {
-                comida--;
+                else
+                {
+                    comida--;
+                }
             }
         }
 
@@ -1337,135 +1178,21 @@ namespace tenso
             Color Target2 = GetPixel(PontoChave2);
             if (ataque <= 0)
             {
+                try
+                {
+                    if (list[0].Quantidade > 0)
+                    {
 
-                if (aa.Quantidade > 0)
-                {
+                        list[0].Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, list[0]);
 
-                    aa.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, aa);
-
+                    }
+                    else
+                    {
+                        list.RemoveAt(0);
+                    }
                 }
-                else if (comercomer.Quantidade > 0)
+                catch
                 {
-                    comercomer.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, comercomer);
-                }
-                else if (s1.Quantidade > 0)
-                {
-                    s1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s1);
-
-                }
-                else if (w1.Quantidade > 0)
-                {
-                    w1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w1);
-
-                }
-                else if (a1.Quantidade > 0)
-                {
-                    a1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a1);
-                }
-                else if (w2.Quantidade > 0)
-                {
-                    w2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w2);
-                }
-                else if (a2.Quantidade > 0)
-                {
-                    a2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a2);
-                }
-                else if (w3.Quantidade > 0)
-                {
-                    w3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w3);
-                }
-                else if (a3.Quantidade > 0)
-                {
-                    a3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a3);
-                }
-                else if (s2.Quantidade > 0)
-                {
-                    s2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s2);
-                }
-                else if (w4.Quantidade > 0)
-                {
-                    w4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w4);
-                }
-                else if (a4.Quantidade > 0)
-                {
-                    a4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a4);
-                }
-                else if (s3.Quantidade > 0)
-                {
-                    s3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s3);
-                }
-                else if (a5.Quantidade > 0)
-                {
-                    a5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a5);
-                }
-                else if (s4.Quantidade > 0)
-                {
-                    s4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s4);
-                }
-                else if (w5.Quantidade > 0)
-                {
-                    w5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w5);
-                }
-                else if (d1.Quantidade > 0)
-                {
-                    d1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d1);
-                }
-                else if (w6.Quantidade > 0)
-                {
-                    w6.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w6);
-                }
-                else if (d2.Quantidade > 0)
-                {
-                    d2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d2);
-                }
-                else if (w7.Quantidade > 0)
-                {
-                    w7.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w7);
-                }
-                else if (d3.Quantidade > 0)
-                {
-                    d3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d3);
-                }
-                else if (s5.Quantidade > 0)
-                {
-                    s5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s5);
-                }
-                else if (w8.Quantidade > 0)
-                {
-                    w8.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w8);
-                }
-                else if (d4.Quantidade > 0)
-                {
-                    d4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d4);
-                }
-                else if (w9.Quantidade > 0)
-                {
-                    w9.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w9);
-                }
-                else if (d5.Quantidade > 0)
-                {
-                    d5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d5);
-                }
-                else if (s6.Quantidade > 0)
-                {
-                    s6.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s6);
-                }
-                else if (d6.Quantidade > 0)
-                {
-                    d6.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d6);
-                }
-                else if (a6.Quantidade > 0)
-                {
-                    a6.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a6);
-                }
-                else if (w10.Quantidade > 0)
-                {
-                    w10.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w10);
-                }
-
-                if (w10.Quantidade == 0)
-                {
-                    // caverna 1 dos anões
                     comercomer.Quantidade = 5;
                     s1.Quantidade = 11;
                     w1.Quantidade = 7;
@@ -1495,10 +1222,42 @@ namespace tenso
                     d6.Quantidade = 21;
                     a6.Quantidade = 13;
                     w10.Quantidade = 2;
+                    //------------
 
-
+                    list.Add(s1);
+                    list.Add(w1);
+                    list.Add(a1);
+                    list.Add(w2);
+                    list.Add(a2);
+                    list.Add(w3);
+                    list.Add(a3);
+                    list.Add(s2);
+                    list.Add(w4);
+                    list.Add(a4);
+                    list.Add(s3);
+                    list.Add(a5);
+                    list.Add(s4);
+                    list.Add(w5);
+                    list.Add(d1);
+                    list.Add(w6);
+                    list.Add(d2);
+                    list.Add(w7);
+                    list.Add(d3);
+                    list.Add(s5);
+                    list.Add(w8);
+                    list.Add(d4);
+                    list.Add(w9);
+                    list.Add(d5);
+                    list.Add(s6);
+                    list.Add(d6);
+                    list.Add(a6);
+                    list.Add(w10);
 
                 }
+
+
+
+
 
 
 
@@ -1585,125 +1344,20 @@ namespace tenso
             if (ataque <= 0)
             {
 
-                if (aa.Quantidade > 0)
+                try
                 {
+                    if (list[0].Quantidade > 0)
+                    {
 
-                    aa.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, aa);
-                }
-                else if (s1.Quantidade > 0)
-                {
-                    s1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s1);
-                }
-                else if (w1.Quantidade > 0)
-                {
-                    w1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w1);
-                }
-                else if (a1.Quantidade > 0)
-                {
-                    a1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a1);
-                }
-                else if (w2.Quantidade > 0)
-                {
-                    w2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w2);
-                }
-                else if (a2.Quantidade > 0)
-                {
-                    a2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a2);
-                }
-                else if (w3.Quantidade > 0)
-                {
-                    w3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w3);
-                }
-                else if (a3.Quantidade > 0)
-                {
-                    a3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a3);
-                }
-                else if (s2.Quantidade > 0)
-                {
-                    s2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s2);
-                }
-                else if (w4.Quantidade > 0)
-                {
-                    w4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w4);
-                }
-                else if (a4.Quantidade > 0)
-                {
-                    a4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a4);
-                }
-                else if (s3.Quantidade > 0)
-                {
-                    s3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s3);
-                }
-                else if (a5.Quantidade > 0)
-                {
-                    a5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a5);
-                }
-                else if (s4.Quantidade > 0)
-                {
-                    s4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s4);
-                }
-                else if (w5.Quantidade > 0)
-                {
-                    w5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w5);
-                }
-                else if (d1.Quantidade > 0)
-                {
-                    d1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d1);
-                }
-                else if (w6.Quantidade > 0)
-                {
-                    w6.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w6);
-                }
-                else if (d2.Quantidade > 0)
-                {
-                    d2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d2);
-                }
-                else if (w7.Quantidade > 0)
-                {
-                    w7.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w7);
-                }
-                else if (d3.Quantidade > 0)
-                {
-                    d3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d3);
-                }
-                else if (s5.Quantidade > 0)
-                {
-                    s5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s5);
-                }
-                else if (w8.Quantidade > 0)
-                {
-                    w8.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w8);
-                }
-                else if (d4.Quantidade > 0)
-                {
-                    d4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d4);
-                }
-                else if (w9.Quantidade > 0)
-                {
-                    w9.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w9);
-                }
-                else if (d5.Quantidade > 0)
-                {
-                    d5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d5);
-                }
-                else if (s6.Quantidade > 0)
-                {
-                    s6.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s6);
-                }
-                else if (d6.Quantidade > 0)
-                {
-                    d6.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d6);
-                }
-                else if (a6.Quantidade > 0)
-                {
-                    a6.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a6);
-                }
-                else if (w10.Quantidade > 0)
-                {
-                    w10.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w10);
-                }
+                        list[0].Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, list[0]);
 
-                if (w10.Quantidade == 0)
+                    }
+                    else
+                    {
+                        list.RemoveAt(0);
+                    }
+                }
+                catch
                 {
                     s1.Quantidade = 11;
                     w1.Quantidade = 7;
@@ -1733,10 +1387,40 @@ namespace tenso
                     d6.Quantidade = 21;
                     a6.Quantidade = 13;
                     w10.Quantidade = 2;
+                    //----------------
 
-
+                    list.Add(s1);
+                    list.Add(w1);
+                    list.Add(a1);
+                    list.Add(w2);
+                    list.Add(a2);
+                    list.Add(w3);
+                    list.Add(a3);
+                    list.Add(s2);
+                    list.Add(w4);
+                    list.Add(a4);
+                    list.Add(s3);
+                    list.Add(a5);
+                    list.Add(s4);
+                    list.Add(w5);
+                    list.Add(d1);
+                    list.Add(w6);
+                    list.Add(d2);
+                    list.Add(w7);
+                    list.Add(d3);
+                    list.Add(s5);
+                    list.Add(w8);
+                    list.Add(d4);
+                    list.Add(w9);
+                    list.Add(d5);
+                    list.Add(s6);
+                    list.Add(d6);
+                    list.Add(a6);
+                    list.Add(w10);
 
                 }
+
+
 
 
             }
@@ -1876,255 +1560,159 @@ namespace tenso
             {
                 if (ContFlour == 0)
                 {
-                    if (aa.Quantidade > 0)
+                    try
                     {
-
-                        aa.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, aa);
-                    }
-                    else if (s1.Quantidade > 0)
-                    {
-                        s1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s1);
-                    }
-                    else if (d1.Quantidade > 0)
-                    {
-                        d1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d1);
-                    }
-                    else if (s2.Quantidade > 0)
-                    {
-                        s2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s2);
-                    }
-                    else if (d2.Quantidade > 0)
-                    {
-                        d2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d2);
-                    }
-                    else if (s3.Quantidade > 0)
-                    {
-                        s3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s3);
-                    }
-                    else if (d3.Quantidade > 0)
-                    {
-                        d3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d3);
-                    }
-                    else if (s4.Quantidade > 0)
-                    {
-                        s4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s4);
-                    }
-                    else if (a1.Quantidade > 0)
-                    {
-                        a1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a1);
-                    }
-                    else if (w1.Quantidade > 0)
-                    {
-                        w1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w1);
-                    }
-                    else if (a2.Quantidade > 0)
-                    {
-                        a2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a2);
-                    }
-                    else if (w2.Quantidade > 0)
-                    {
-                        w2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w2);
-                    }
-                    else if (comercomer.Quantidade > 0)
-                    {
-                        comercomer.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, comercomer);
-                    }
-                    else if (a3.Quantidade > 0)
-                    {
-                        if (a3.Quantidade == 1)
+                        if (list[0].Quantidade > 0)
                         {
-                            if (subir == 15)
-                            {
-                                timer1.Enabled = true;
-                                ContFlour++;
-                                w5.Quantidade--;
-                                asair = 0;
-                            }
-                            else if (subir > 0)
-                            {
-                                label8.Text = "" + subir;
-                                subir--;
-                            }
-                            else
-                            {
-                                a3.Quantidade--;
-                                asair = 0;
-                            }
+
+                            list[0].Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, list[0]);
+
                         }
                         else
                         {
-                            a3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a3);
+                            list.RemoveAt(0);
+                        }
+                    }
+                    catch
+                    {
+                        aa.Quantidade = 3;
+                        s1.Quantidade = 4;
+                        d1.Quantidade = 3;
+                        s2.Quantidade = 6;
+                        d2.Quantidade = 8;
+                        s3.Quantidade = 1;
+                        d3.Quantidade = 8;
+                        s4.Quantidade = 13;
+                        a1.Quantidade = 14;
+                        w1.Quantidade = 14;
+                        a2.Quantidade = 3;
+                        w2.Quantidade = 10;
+                        a3.Quantidade = 2;
+                        w5.Quantidade = 1;
+                        comercomer.Quantidade = 5;
+                        //----------------
+
+                        list.Add(aa);
+                        list.Add(s1);
+                        list.Add(d1);
+                        list.Add(s2);
+                        list.Add(d2);
+                        list.Add(s3);
+                        list.Add(d3);
+                        list.Add(s4);
+                        list.Add(a1);
+                        list.Add(w1);
+                        list.Add(a2);
+                        list.Add(w2);
+                        list.Add(a3);
+                        list.Add(w5);
+                        list.Add(comercomer);
+
+                        if (subir == 15)
+                        {
+                            timer1.Enabled = true;
+                            ContFlour++;
+                            w5.Quantidade--;
+                            asair = 0;
+                        }
+                        else if (subir > 0)
+                        {
+                            label8.Text = "" + subir;
+                            subir--;
+                        }
+                        else
+                        {
+                            a3.Quantidade--;
+                            asair = 0;
                         }
 
-
-
-
-                    }
-                    else if (comercomer.Quantidade > 0)
-                    {
-                        comercomer.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, comercomer);
                     }
                 }
 
                 else if (ContFlour == 1)
                 {
-                    if (aa.Quantidade > 0)
+                    try
                     {
-                        aa.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, aa);
-                        label8.Text = "" + aa;
-                    }
-                    else if (s1.Quantidade > 0)
-                    {
-                        s1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s1);
-                    }
-                    else if (a1.Quantidade > 0)
-                    {
-                        a1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a1);
-                    }
-                    else if (s2.Quantidade > 0)
-                    {
-                        s2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s2);
-                    }
-                    else if (a2.Quantidade > 0)
-                    {
-                        a2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a2);
-                    }
-                    else if (s3.Quantidade > 0)
-                    {
-                        s3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s3);
-                    }
-                    else if (a3.Quantidade > 0)
-                    {
-                        a3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a3);
-                    }
-                    else if (s4.Quantidade > 0)
-                    {
-                        s4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s4);
-                    }
-                    else if (a4.Quantidade > 0)
-                    {
-                        a4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a4);
-                    }
-                    else if (s5.Quantidade > 0)
-                    {
-                        s5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s5);
-                    }
-                    else if (a5.Quantidade > 0)
-                    {
-                        a5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a5);
-                    }
-                    else if (w1.Quantidade > 0)
-                    {
-                        w1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w1);
-                    }
-                    else if (s6.Quantidade > 0)
-                    {
-                        s6.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s6);
-                    }
-                    else if (d1.Quantidade > 0)
-                    {
-                        d1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d1);
-                    }
-                    else if (w2.Quantidade > 0)
-                    {
-                        w2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w2);
-                    }
-                    else if (d2.Quantidade > 0)
-                    {
-                        d2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d2);
-                    }
-                    else if (w3.Quantidade > 0)
-                    {
-                        w3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w3);
-                    }
-                    else if (d6.Quantidade > 0)
-                    {
-                        d6.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d6);
-                    }
-                    else if (a6.Quantidade > 0)
-                    {
-                        a6.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a6);
-                    }
-                    else if (w6.Quantidade > 0)
-                    {
-                        w6.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w6);
-                    }
-                    else if (d4.Quantidade > 0)
-                    {
-                        d4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d4);
-                    }
-                    else if (comercomer.Quantidade > 0)
-                    {
-                        comercomer.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, comercomer);
-                    }
-                    else if (w5.Quantidade > 0)
-                    {
-                        w5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w5);
-                        if (w5.Quantidade == 0)
+                        if (list[0].Quantidade > 0)
                         {
-                            ContFlour--;
-                            asair = 1;
+
+                            list[0].Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, list[0]);
 
                         }
+                        else
+                        {
+                            list.RemoveAt(0);
+                        }
                     }
+                    catch
+                    {
 
+                        aa.Quantidade = 3;
+                        s1.Quantidade = 1;
+                        a1.Quantidade = 2;
+                        s2.Quantidade = 3;
+                        a2.Quantidade = 2;
+                        s3.Quantidade = 3;
+                        a3.Quantidade = 2;
+                        s4.Quantidade = 6;
+                        a4.Quantidade = 3;
+                        s5.Quantidade = 4;
+                        a5.Quantidade = 5;
+                        w1.Quantidade = 4;
+                        s6.Quantidade = 4;
+                        d1.Quantidade = 5;
+                        w2.Quantidade = 8;
+                        d2.Quantidade = 4;
+                        w3.Quantidade = 3;
+                        d6.Quantidade = 5;
+                        a6.Quantidade = 1;
+                        w6.Quantidade = 6;
+                        d4.Quantidade = 2;
+                        w5.Quantidade = 1;
+                        asair = 1;
+                        comercomer.Quantidade = 5;
 
+                        //------------------------------
+
+                        list.Add(aa);
+                        list.Add(s1);
+                        list.Add(a1);
+                        list.Add(s2);
+                        list.Add(a2);
+                        list.Add(s3);
+                        list.Add(a3);
+                        list.Add(s4);
+                        list.Add(a4);
+                        list.Add(s5);
+                        list.Add(a5);
+                        list.Add(w1);
+                        list.Add(s6);
+                        list.Add(d1);
+                        list.Add(w2);
+                        list.Add(d2);
+                        list.Add(w3);
+                        list.Add(d6);
+                        list.Add(a6);
+                        list.Add(w6);
+                        list.Add(d4);
+                        list.Add(w5);
+                        asair = 1;
+                        list.Add(comercomer);
+
+                        ContFlour--;
+                        asair = 1;
+
+                    }
                 }
 
-
-
-                if (ContFlour == 0 && w5.Quantidade == 0)
-                {
-                    aa.Quantidade = 3;
-                    s1.Quantidade = 4;
-                    d1.Quantidade = 3;
-                    s2.Quantidade = 6;
-                    d2.Quantidade = 8;
-                    s3.Quantidade = 1;
-                    d3.Quantidade = 8;
-                    s4.Quantidade = 13;
-                    a1.Quantidade = 14;
-                    w1.Quantidade = 14;
-                    a2.Quantidade = 3;
-                    w2.Quantidade = 10;
-                    a3.Quantidade = 2;
-                    w5.Quantidade = 1;
-                    comercomer.Quantidade = 5;
-
-
-                }
-                else if (ContFlour == 1 && asair == 0)
-                {
-                    aa.Quantidade = 3;
-                    s1.Quantidade = 1;
-                    a1.Quantidade = 2;
-                    s2.Quantidade = 3;
-                    a2.Quantidade = 2;
-                    s3.Quantidade = 3;
-                    a3.Quantidade = 2;
-                    s4.Quantidade = 6;
-                    a4.Quantidade = 3;
-                    s5.Quantidade = 4;
-                    a5.Quantidade = 5;
-                    w1.Quantidade = 4;
-                    s6.Quantidade = 4;
-                    d1.Quantidade = 5;
-                    w2.Quantidade = 8;
-                    d2.Quantidade = 4;
-                    w3.Quantidade = 3;
-                    d6.Quantidade = 5;
-                    a6.Quantidade = 1;
-                    w6.Quantidade = 6;
-                    d4.Quantidade = 2;
-                    w5.Quantidade = 1;
-                    asair = 1;
-                    comercomer.Quantidade = 5;
-
-
-
-                }
 
             }
+
+
+
+
+
+
             else if (ataque <= 5 && !verificacaoAtaaque(Target) && !verificacaoPixel(Target, Target2) && !auxiliar)
             {
                 Point pontoChave = new Point(964, 521);
@@ -2269,7 +1857,7 @@ namespace tenso
             int y2 = Convert.ToInt32(textBoxPonto2Y.Text);
             Point PontoChave2 = new Point(x2, y2);
             Color Target2 = GetPixel(PontoChave2);
-           if(ataque == 8 && !verificacaoAtaaque(Target))
+            if (ataque == 8 && !verificacaoAtaaque(Target))
             {
                 SendKeys.Send(" ");
             }
@@ -2292,19 +1880,19 @@ namespace tenso
                     }
                     else if (s1.Quantidade > 0)
                     {
-                        s1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,s1 );
+                        s1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s1);
                     }
                     else if (d1.Quantidade > 0)
                     {
-                        d1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,d1 );
+                        d1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d1);
                     }
                     else if (s2.Quantidade > 0)
                     {
-                        s2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,s2 );
+                        s2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s2);
                     }
                     else if (d2.Quantidade > 0)
                     {
-                        d2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,d2 );
+                        d2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d2);
                     }
                     else if (s3.Quantidade > 0)
                     {
@@ -2312,7 +1900,7 @@ namespace tenso
                     }
                     else if (a1.Quantidade > 0)
                     {
-                        a1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,a1 );
+                        a1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a1);
                     }
                     else if (s4.Quantidade > 0)
                     {
@@ -2320,19 +1908,19 @@ namespace tenso
                     }
                     else if (d3.Quantidade > 0)
                     {
-                        d3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,d3 );
+                        d3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d3);
                     }
                     else if (s5.Quantidade > 0)
                     {
-                        s5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,s5 );
+                        s5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s5);
                     }
                     else if (w1.Quantidade > 0)
                     {
-                        w1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,w1 );
+                        w1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w1);
                     }
                     else if (a2.Quantidade > 0)
                     {
-                        a2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,a2 );
+                        a2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a2);
                     }
                     else if (w2.Quantidade > 0)
                     {
@@ -2340,7 +1928,7 @@ namespace tenso
                     }
                     else if (d4.Quantidade > 0)
                     {
-                        d4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,d4 );
+                        d4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d4);
                     }
                     else if (s6.Quantidade > 0)
                     {
@@ -2348,11 +1936,11 @@ namespace tenso
                     }
                     else if (d5.Quantidade > 0)
                     {
-                        d5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,d5 );
+                        d5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d5);
                     }
                     else if (s7.Quantidade > 0)
                     {
-                        s7.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,s7 );
+                        s7.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s7);
                     }
                     else if (d6.Quantidade > 0)
                     {
@@ -2360,57 +1948,57 @@ namespace tenso
                     }
                     else if (s8.Quantidade > 0)
                     {
-                        s8.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,s8 );
+                        s8.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s8);
                     }
                     else if (d7.Quantidade > 0)
                     {
-                        d7.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,d7 );
+                        d7.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d7);
                     }
                     else if (s9.Quantidade > 0)
                     {
-                        s9.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,s9 );
+                        s9.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s9);
                     }
                     else if (d8.Quantidade > 0)
                     {
-                        d8.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,d8 );
+                        d8.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d8);
                     }
                     else if (s10.Quantidade > 0)
                     {
-                        s10.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,s10 );
+                        s10.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s10);
                     }
                     else if (w3.Quantidade > 0)
                     {
-                        w3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,w3 );
+                        w3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w3);
                     }
                     else if (d9.Quantidade > 0)
                     {
-                        d9.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,d9 );
+                        d9.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d9);
                     }
                     else if (a3.Quantidade > 0)
                     {
-                        a3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,a3 );
+                        a3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a3);
                     }
                     else if (q1.Quantidade > 0)
                     {
-                        q1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,q1 );
+                        q1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, q1);
                         timer2.Interval = 1500;
                     }
                     else if (w4.Quantidade > 0)
                     {
                         timer2.Interval = 550;
-                        w4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,w4 );
+                        w4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w4);
                     }
                     else if (a4.Quantidade > 0)
                     {
-                        a4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,a4 );
+                        a4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a4);
                     }
                     else if (w5.Quantidade > 0)
                     {
-                        w5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,w5 );
+                        w5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w5);
                     }
                     else if (a5.Quantidade > 0)
                     {
-                        a5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,a5 );
+                        a5.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a5);
                     }
 
 
@@ -2524,12 +2112,12 @@ namespace tenso
                 }
             }
 
-         
+
             if (comida < 10)
             {
 
                 SendKeys.Send("{F5}");
-               
+
                 if (comida % 2 == 0)
                 {
                     SendKeys.Send("{F3}");
@@ -2602,7 +2190,7 @@ namespace tenso
                 }
                 else if (w1.Quantidade > 0)
                 {
-                    w1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,w1 );
+                    w1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w1);
 
                 }
                 else if (d2.Quantidade > 0)
@@ -2632,7 +2220,7 @@ namespace tenso
                 }
                 else if (w3.Quantidade > 0)
                 {
-                   w3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,w3 );
+                    w3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w3);
 
                 }
                 else if (a2.Quantidade > 0)
@@ -2652,7 +2240,7 @@ namespace tenso
                 }
                 else if (s4.Quantidade > 0)
                 {
-                    s4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,s4 );
+                    s4.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s4);
 
                 }
 
@@ -2728,7 +2316,7 @@ namespace tenso
                 label7.Text = "atacando" + ataque + "{F5}";
                 if (comida % 2 == 0)
                 {
-                   
+
                 }
                 if (comida == 1)
                 {
@@ -2776,23 +2364,23 @@ namespace tenso
                 }
                 else if (w1.Quantidade > 0)
                 {
-                    w1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,w1 );
+                    w1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w1);
 
 
                 }
                 else if (a1.Quantidade > 0)
                 {
-                    a1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,a1 );
+                    a1.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a1);
 
                 }
                 else if (w2.Quantidade > 0)
                 {
-                    w2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,w2 );
+                    w2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, w2);
 
                 }
                 else if (a2.Quantidade > 0)
                 {
-                    a2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,a2 );
+                    a2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a2);
 
                 }
                 else if (w3.Quantidade > 0)
@@ -2802,7 +2390,7 @@ namespace tenso
                 }
                 else if (a3.Quantidade > 0)
                 {
-                    a3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,a3 );
+                    a3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, a3);
 
                 }
                 else if (s1.Quantidade > 0)
@@ -2827,12 +2415,12 @@ namespace tenso
                 }
                 else if (d2.Quantidade > 0)
                 {
-                    d2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,d2 );
+                    d2.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, d2);
 
                 }
                 else if (s3.Quantidade > 0)
                 {
-                    s3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave,s3 );
+                    s3.Quantidade = VerificacaoDePixel(Target, Target2, PontoChave, s3);
 
                 }
                 else if (d3.Quantidade > 0)
